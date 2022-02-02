@@ -23,7 +23,9 @@ Route::get('/', function () {
 // Route::get('/', function () {
 //     return view('test');
 // });
+Route::resource('/', PostController::class);
 Route::get('/posts', [PostController::class, 'index'])->name('posts.index');
+Route::get('/posts/create', [PostController::class, 'create'])->name('posts.create');
 // Route::resource('students', StudentController::class);
 // Route::get('/', [StudentController::class, 'index']);
 Route::get('/create', [StudentController::class, 'create']);
