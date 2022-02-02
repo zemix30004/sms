@@ -1,4 +1,4 @@
-@extends('layouts.layout')
+@extends('layouts.layout', ['title'=>'Главная страница'])
 
 @section('content')
 
@@ -17,10 +17,10 @@
                     <div class="card">
                     <div class="card-header"><h2>{{ $post->short_title }}</h2></div>
                     <div class="card-body">
-                        <div class="card-img" style="background-image: url({{ $post->img ?? asset('img/default.jpg') }})"></div>
+                        <div class="card-img" style="background-image: url({{ $post->image ?? asset('img/default.jpg') }})"></div>
                         <div class="card-author">Автор: {{ $post->name }}</div>
                         {{-- <div class="card-description">{{ $post->description }}</div> --}}
-                        <a href="#" class="btn btn-outline-primary" id="">Посмотреть пост</a>
+                        <a href="{{ route('posts.show', ['id'=>$post->post_id]) }}" class="btn btn-outline-primary" id="">Посмотреть пост</a>
                     </div>
                     </div>
                 </div>
