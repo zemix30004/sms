@@ -8,6 +8,8 @@
             <div class="navbar-nav">
             <a class="nav-link active" aria-current="page" href="{{ url('/') }}">Home</a>
             <a class="nav-link active" aria-current="page" href="{{ url('/create') }}">Create</a>
+            <a class="nav-link active" aria-current="page" href="{{ url('/edit') }}">Edit</a>
+            <a class="nav-link active" aria-current="page" href="{{ url('/update') }}">Update</a>
             </div>
         </div>
         </div>

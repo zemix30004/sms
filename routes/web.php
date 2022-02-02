@@ -19,11 +19,14 @@ Route::get('/', function () {
 });
 */
 
+Route::get('/', function () {
+    return view('test');
+});
 // Route::resource('students', StudentController::class);
-Route::get('/', [StudentController::class, 'index']);
+// Route::get('/', [StudentController::class, 'index']);
 Route::get('/create', [StudentController::class, 'create']);
 Route::post('/store', [StudentController::class, 'store']);
 Route::get('/show/{id}', [StudentController::class, 'show']);
 Route::get('/edit/{id}', [StudentController::class, 'edit']);
-Route::put('/update/{id{', [StudentController::class, 'update']);
-Route::get('/delete/{id}', [StudentController::class, 'destroy']);
+Route::post('/update/{id{', [StudentController::class, 'update']);
+// Route::get('/delete/{id}', [StudentController::class, 'destroy']);

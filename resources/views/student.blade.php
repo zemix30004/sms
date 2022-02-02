@@ -67,31 +67,6 @@
                                 </div>
                             </div>
                         </div>
-                    <form action="{{ url('/store') }}" method="post">
-                        @csrf
-                        <div class="form-group">
-                            <label>CNE</label>
-                            <input type="text" name="cne" class="form-control" placeholder="Enter CNE">
-                        </div>
-                        <div class="form-group">
-                            <label>First Name</label>
-                            <input type="text" name="firstName" class="form-control" placeholder="Enter the first name">
-                        </div>
-                        <div class="form-group">
-                            <label>Last Name</label>
-                            <input type="text" name="lastName" class="form-control" placeholder="Enter the last name">
-                        </div>
-                        <div class="form-group">
-                            <label>Age</label>
-                            <input type="text" name="age" class="form-control" placeholder="Enter your age">
-                        </div>
-                        <div class="form-group">
-                            <label>Speciality</label>
-                            <input type="text" name="speciality" class="form-control" placeholder="Enter your speciality">
-                        </div>
-                        <input type="submit" class="btn btn-info" value="Save">
-                        <input type="reset" class="btn btn-warning" value="Reset">
-                    </form>
                 </section>
             </div>
         </div>
@@ -108,7 +83,43 @@
         <div class="container-fluid mt-4">
             <div class="row">
                 <section class="col-md-7">
-                    @include('studentslist')
+                    <div class="row row-cols-1 row-cols-md-3 g-4">
+                        <div class="col">
+                            <div class="card">
+                                <img src="https://d1csarkz8obe9u.cloudfront.net/posterpreviews/education-design-template-c39090bc805dde1c3b7565813ffcd1b9_screen.jpg?ts=1592640945" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">You can find here all the information about students in the system</h5>
+                                        <table class="table">
+                                            <thead>
+                                            <tr>
+                                                <th scope="col">CNE</th>
+                                                <th scope="col">First Name</th>
+                                                <th scope="col">Last Name</th>
+                                                <th scope="col">Age</th>
+                                                <th scope="col">Speciality</th>
+                                                <th scope="col">Operations</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                                @foreach ($students as $student )
+                                            <tr>
+                                                <td>{{ $student->cne }}</td>
+                                                <td>{{ $student->firstName }}</td>
+                                                <td>{{ $student->lastName }}</td>
+                                                <td>{{ $student->age }}</td>
+                                                <td>{{ $student->speciality}}</td>
+                                                <td>
+                                                    <a href="{{ url('/edit/'.$student->id) }}" class="btn btn-sm btn-warning">Edit</a>
+                                                </td>
+                                            </tr>
+                                            @endforeach
+                                            </tbody>
+                                        </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                 </section>
                 <section class="col-md-5">
                     <div class="row row-cols-1 row-cols-md-3 g-4">
@@ -145,35 +156,10 @@
                                 </div>
                             </div>
                             </div>
-                    <form action="{{ url('/update/'.$student->id) }}" method="post">
-                        @csrf
-                        <div class="form-group">
-                            <label>CNE</label>
-                            <input value="{{$student->cne}}" type="text" name="cne" class="form-control" placeholder="Enter CNE">
-                        </div>
-                        <div class="form-group">
-                            <label>First Name</label>
-                            <input value="{{$student->firstName}}" type="text" name="firstName" class="form-control" placeholder="Enter the first name">
-                        </div>
-                        <div class="form-group">
-                            <label>Last Name</label>
-                            <input value="{{$student->lastName}}" type="text" name="lastName" class="form-control" placeholder="Enter the last name">
-                        </div>
-                        <div class="form-group">
-                            <label>Age</label>
-                            <input value="{{$student->age}}" type="text" name="age" class="form-control" placeholder="Enter your age">
-                        </div>
-                        <div class="form-group">
-                            <label>Speciality</label>
-                            <input value="{{$student->speciality}}" type="text" name="speciality" class="form-control" placeholder="Enter your speciality">
-                        </div>
-                        <input type="submit" class="btn btn-info" value="Update">
-                        <input type="reset" class="btn btn-warning" value="Reset">
-                    </form>
                 </section>
             </div>
         </div>
-        @elseif($layout == 'destroy');
+        {{-- @elseif($layout == 'destroy'); --}}
         @endif
 
         <!-- Optional JavaScript; choose one of the two! -->

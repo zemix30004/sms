@@ -58,7 +58,7 @@ class StudentController extends Controller
     {
         $student = Student::find($id);
         $students = Student::all();
-        return view('student', [$students => 'students', $student => 'student', 'layout' => 'show']);
+        return view('student', ['students' => $students, 'student' => $student, 'layout' => 'show']);
     }
 
     /**
@@ -71,7 +71,7 @@ class StudentController extends Controller
     {
         $student = Student::find($id);
         $students = Student::all();
-        return view('student', [$students => 'students', $student => 'student', 'layout' => 'edit']);
+        return view('student', ['students' => $students, 'student' => $student, 'layout' => 'edit']);
     }
 
     /**
