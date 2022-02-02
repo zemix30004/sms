@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\StudentController;
 
@@ -19,9 +20,10 @@ Route::get('/', function () {
 });
 */
 
-Route::get('/', function () {
-    return view('test');
-});
+// Route::get('/', function () {
+//     return view('test');
+// });
+Route::get('/posts', [PostController::class, 'index'])->name('posts.index');
 // Route::resource('students', StudentController::class);
 // Route::get('/', [StudentController::class, 'index']);
 Route::get('/create', [StudentController::class, 'create']);
