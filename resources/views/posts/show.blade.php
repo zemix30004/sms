@@ -14,6 +14,8 @@
                         <div class="card-date">Пост создан: {{ $post->created_at->diffForHumans() }}</div>
                         <div class="card-btn">
                                     <a href="{{ route('posts.index') }}" class="btn btn-outline-primary" id="">На главную</a>
+                                    @auth
+                                    @if(Auth::user()->id == $post->author_id)
                                     <a href="{{ route('posts.edit', ['id'=>$post->post_id]) }}" class="btn btn-outline-success" id="">Редактировать</a>
                                     <form action="{{ route('posts.destroy', ['id'=>$post->post_id] )}}"
                                         class="" method="post" onsubmit="if(confirm('Точно удалить пост?')){return true} else {return false}">
@@ -21,6 +23,8 @@
                                         @method('DELETE')
                                         <input type="submit" id="" class="btn btn-outline-danger" value="Удалить">
                                     </form>
+                                    @endif
+                                    @endauth
                                     {{-- <a href="{{ route('posts.destroy', ['id'=>$post->post_id]) }}" class="btn btn-outline-danger" id="">Удалить</a> --}}
                         </div>
                     </div>

@@ -42,3 +42,7 @@ Route::delete('posts/{id}', [PostController::class, 'destroy'])->name('posts.des
 // Route::get('/edit/{id}', [StudentController::class, 'edit']);
 // Route::post('/update/{id}', [StudentController::class, 'update']);
 // Route::get('/delete/{id}', [StudentController::class, 'destroy']);
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
